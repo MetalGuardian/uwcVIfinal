@@ -168,6 +168,27 @@ $frontend = array(
 					),
 					'depends' => array('jquery', ),
 				),
+
+				'frontend2.main' => array(
+					'baseUrl' => '/',
+					'js' => array(
+						'js/application.js',
+					),
+					'css' => array(
+						'css/application2.css' => 'screen, projection',
+					),
+					'depends' => array('jquery', 'theme.melon3.2'),
+				),
+				'theme.melon3.2' => array(
+					'baseUrl' => '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/',
+					'js' => array(
+						'js/bootstrap.min.js',
+					),
+					'css' => array(
+						'css/bootstrap.min.css' => '',
+					),
+					'depends' => array('jquery', ),
+				),
 			),
 			'scriptMap' => array(),
 		),

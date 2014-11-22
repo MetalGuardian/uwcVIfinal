@@ -25,8 +25,8 @@
 						<h2 class="title"><?= $data->label; ?></h2>
 						<p class="desc"><?= $data->place; ?></p>
 						<ul>
-							<li style="width:50%;"><a href="<?= nu($data->getPageUrl()); ?>"><span class="fa fa-globe"></span> buy ticket</a></li>
-							<li style="width:50%;"><span class="fa fa-money"></span> $39.99</li>
+							<li style="width:50%;"><a href="<?= nu($data->getPageUrl()); ?>"><span class="fa fa-globe"></span> to event</a></li>
+							<li style="width:50%;"><a href="<?= nu($data->getBuyPageUrl()); ?>"><span class="fa fa-money"></span> $39.99</a></li>
 						</ul>
 					</div>
 				</li>

@@ -69,6 +69,11 @@ class Event extends ActiveRecord
 		return self::createUrl(array('/event/default/view', 'id' => $this->id), $params);
 	}
 
+	public function getBuyPageUrl($params = array())
+	{
+		return self::createUrl(array('/event/default/view', 'id' => $this->id), $params);
+	}
+
 	/**
 	 * Generate list page url
 	 *
@@ -117,5 +122,11 @@ class Event extends ActiveRecord
 	public function getYear()
 	{
 		return date('Y', strtotime($this->begin_date));
+	}
+
+	public function getBeginDate()
+	{
+		$format = app()->dateFormatter;
+		return $format->format('d MMMM y H:m', $this->begin_date);
 	}
 }
