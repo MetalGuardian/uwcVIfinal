@@ -56,28 +56,10 @@ class EventOrder extends ActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'ticket' => array(self::BELONGS_TO, 'EventTicketType', 'ticket_id'),
-			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
-			'group' => array(self::BELONGS_TO, 'EventOrderGroup', 'group_id'),
-			'promoCode' => array(self::BELONGS_TO, 'EventPromoCode', 'promo_code_id'),
-		);
-	}
-
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('event_id, ticket_id, order_date', 'required'),
-			array('event_id, promo_code_id, ticket_id, group_id', 'numerical', 'integerOnly' => true),
-			array('real_price', 'numerical'),
-			array('name', 'length', 'max' => 200),
-			array('email', 'length', 'max' => 100),
-			// The following rule is used by search().
-			array('id, event_id, real_price, name, email, promo_code_id, ticket_id, order_date, group_id', 'safe', 'on' => 'search', ),
+			'ticket' => array(self::BELONGS_TO, EventTicketType::getClassName(), 'ticket_id'),
+			'event' => array(self::BELONGS_TO, Event::getClassName(), 'event_id'),
+			'group' => array(self::BELONGS_TO, EventOrderGroup::getClassName(), 'group_id'),
+			'promoCode' => array(self::BELONGS_TO, EventPromoCode::getClassName(), 'promo_code_id'),
 		);
 	}
 
@@ -148,8 +130,16 @@ class EventOrder extends ActiveRecord
 	 */
 	public function genAdminBreadcrumbs($page, $title = null)
 	{
-		return parent::genAdminBreadcrumbs($page, $title ? $title : 'EventOrder');
+		return parent::genAdminBreadcrumbs($page, $title ? $title : 'Event Order');
 	}
+
+	public function genAdminMenu($page)
+	{
+		$menu = parent::genAdminMenu($page);
+		unset($menu['create'], $menu['update'], $menu['delete']);
+		return $menu;
+	}
+
 
 	/**
 	 * Get columns configs to specified page for grid or detail view
@@ -168,25 +158,51 @@ class EventOrder extends ActiveRecord
 						'name' => 'id',
 						'htmlOptions' => array('class' => 'span1 center', ),
 					),
-					'event_id',
+					array(
+						'name' => 'event_id',
+						'filter' => \CHtml::listData(Event::getItems(), 'id', 'label'),
+						'value' => function (EventOrder $data) {
+							return $data->getValue('event', 'label');
+						},
+					),
 					'email',
-					'promo_code_id',
-					'ticket_id',
+					array(
+						'name' => 'promo_code_id',
+						'value' => function (EventOrder $data) {
+							return $data->getValue('promoCode', 'code');
+						},
+					),
+					array(
+						'name' => 'ticket_id',
+						'value' => function (EventOrder $data) {
+							return $data->getValue('ticket', 'label');
+						},
+					),
 					'group_id',
 					array(
 						'class' => 'bootstrap.widgets.TbButtonColumn',
+						'template' => '{view}',
 					),
 				);
 				break;
 			case 'view':
 				$columns = array(
 					'id',
-					'event_id',
+					array(
+						'name' => 'event_id',
+						'value' => $this->getValue('event', 'label'),
+					),
 					'real_price',
 					'name',
 					'email',
-					'promo_code_id',
-					'ticket_id',
+					array(
+						'name' => 'promo_code_id',
+						'value' => $this->getValue('promoCode', 'code'),
+					),
+					array(
+						'name' => 'ticket_id',
+						'value' => $this->getValue('ticket', 'label'),
+					),
 					'order_date',
 					'group_id',
 				);
