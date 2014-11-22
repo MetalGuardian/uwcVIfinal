@@ -232,3 +232,4 @@ body {
 
 /***************/
 .select-step2, .order-step1 {display: none;}
+input.error {border: 1px red solid;}

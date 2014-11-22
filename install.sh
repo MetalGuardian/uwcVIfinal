@@ -24,3 +24,6 @@ mysql --user=root --password= -e "$SQL"
 
 cd /vagrant/src && composer install
 cd /vagrant/src/backend/www && ln -s ../../frontend/www/uploads/ ./
+
+# add cron email command
+echo "* * * * * vagrant /vagrant/src/yiic email" >> /etc/crontab

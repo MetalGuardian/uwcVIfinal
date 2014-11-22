@@ -77,12 +77,13 @@
 		</tr>
 		</tbody>
 		<tfoot>
-		<tr class="visible-xs">
-			<td class="text-center"><strong>Total 1.99</strong></td>
-		</tr>
 		<tr>
 			<td><a href="<?= nu($model->getPageUrl()); ?>" class="btn btn-warning"><i class="fa fa-angle-left"></i> Back to event</a></td>
-			<td colspan="2" class="hidden-xs"></td>
+			<td colspan="2" class="hidden-xs">
+				Promo code:
+				<?= CHtml::activeTextField($buy, 'promo_code'); ?>
+				<?= $buy->discount ? 'Discount: $' . $buy->discount : null; ?>
+			</td>
 			<td class="hidden-xs text-center"><strong><?= $buy->real_price ? 'Total $' . $buy->real_price : null; ?></strong></td>
 			<td class="select-step<?= $step; ?>"><input type="submit" class="btn btn-success btn-block" value="Checkout" /></td>
 		</tr>

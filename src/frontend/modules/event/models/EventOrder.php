@@ -32,6 +32,8 @@ class EventOrder extends ActiveRecord
 {
 	public $card_name;
 	public $card_code;
+	public $promo_code;
+	public $discount = 0;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
@@ -80,7 +82,7 @@ class EventOrder extends ActiveRecord
 			array('name', 'length', 'max'=>200),
 			array('email', 'length', 'max'=>100),
 			array('email', 'email'),
-			array('card_name, card_code', 'safe'),
+			array('card_name, card_code, promo_code', 'safe'),
 
 
 			array('card_name, card_code', 'required', 'on' => 'checkout'),
@@ -192,7 +194,16 @@ class EventOrder extends ActiveRecord
 		parent::afterValidate();
 
 		if (!$this->hasErrors()) {
-			$this->real_price = $this->ticket->price;
+			$promo = EventPromoCode::model()
+				->compare('t.event_id', $this->event_id)
+				->compare('t.code', $this->promo_code)
+				->find();
+			if ($promo) {
+				$this->promo_code_id = $promo->id;
+				$this->discount = $this->ticket->price * $promo->discount / 100;
+			}
+
+			$this->real_price = $this->ticket->price - $this->discount;
 		}
 	}
 
