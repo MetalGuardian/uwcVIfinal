@@ -105,6 +105,7 @@ $frontend = array(
 				),*/
 				array('site/index', 'pattern' => '<lang:\w{2}>'),
 				array('site/index', 'pattern' => ''),
+				array('site/success', 'pattern' => 'success'),
 
 				array('site/imperaviImageUpload', 'pattern' => '<lang:\w{2}>/redactor/upload/image', ),
 				array('site/imperaviImageUpload', 'pattern' => 'redactor/upload/image', ),
@@ -112,6 +113,7 @@ $frontend = array(
 				array('site/imperaviFileUpload', 'pattern' => 'redactor/upload/file', ),
 
 				array('event/default/view', 'pattern' => 'event/<id:\d+>'),
+				array('event/default/buy', 'pattern' => 'event/<id:\d+>/buy'),
 
 				array(
 					'class' => '\fileProcessor\components\YiiFileProcessorUrlRule',
@@ -156,7 +158,7 @@ $frontend = array(
 					'css' => array(
 						'css/application.css' => 'screen, projection',
 					),
-					'depends' => array('jquery', 'theme.melon'),
+					'depends' => array('jquery', 'theme.melon', 'fonts'),
 				),
 				'theme.melon' => array(
 					'baseUrl' => '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/',
@@ -168,7 +170,13 @@ $frontend = array(
 					),
 					'depends' => array('jquery', ),
 				),
-
+				'fonts' => array(
+					'baseUrl' => '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/',
+					'css' => array(
+						'/css/font-awesome.min.css' => '',
+					),
+					'depends' => array('jquery', ),
+				),
 				'frontend2.main' => array(
 					'baseUrl' => '/',
 					'js' => array(
@@ -190,7 +198,10 @@ $frontend = array(
 					'depends' => array('jquery', ),
 				),
 			),
-			'scriptMap' => array(),
+			'scriptMap' => array(
+				'jquery.js' => '//code.jquery.com/jquery-1.10.2.min.js',
+				'jquery.min.js' => '//code.jquery.com/jquery-1.10.2.min.js',
+			),
 		),
 		'errorHandler' => array(
 			'errorAction' => 'site/error',

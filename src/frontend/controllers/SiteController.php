@@ -27,6 +27,11 @@ class SiteController extends FrontController
 		$this->render('index');
 	}
 
+	public function actionSuccess()
+	{
+		$this->render('success');
+	}
+
 	public function actionMaintenance()
 	{
 		$this->layout = false;

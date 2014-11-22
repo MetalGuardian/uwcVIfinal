@@ -22,22 +22,24 @@ class m141122_123650_create_event_order extends \CDbMigration
 
 				'event_id' => 'INT NOT NULL COMMENT "Событие"',
 
-				'price' => 'FLOAT NOT NULL DEFAULT 0 COMMENT "Цена"',
 				'real_price' => 'FLOAT NOT NULL DEFAULT 0 COMMENT "Реальная Цена"',
 				'name' => 'VARCHAR(200) NULL DEFAULT NULL COMMENT "Имя"',
 				'email' => 'VARCHAR(100) NULL DEFAULT NULL COMMENT "Email"',
 
 				'promo_code_id' => 'INT NULL DEFAULT NULL COMMENT "Промо код"',
 
+				'ticket_id' => 'INT NOT NULL COMMENT "Билет"',
+
 				'order_date' => 'DATETIME NOT NULL COMMENT "Время заказа"',
 
-				'group_id' => 'INT NOT NULL COMMENT "Группа"',
+				'group_id' => 'INT NULL DEFAULT NULL COMMENT "Группа"',
 			),
 			'ENGINE=InnoDB DEFAULT CHARACTER SET=utf8 COLLATE=utf8_unicode_ci'
 		);
 		$this->addForeignKey('fk_event_order_event_2_event', $this->tableName, 'event_id', '{{event}}', 'id', 'CASCADE', 'CASCADE');
 		$this->addForeignKey('fk_event_order_group_2_group', $this->tableName, 'group_id', '{{event_order_group}}', 'id', 'CASCADE', 'CASCADE');
 		$this->addForeignKey('fk_event_order_promo_2_promo', $this->tableName, 'promo_code_id', '{{event_promo_code}}', 'id', 'CASCADE', 'CASCADE');
+		$this->addForeignKey('fk_event_order_ticket_2_ticket', $this->tableName, 'ticket_id', '{{event_ticket_type}}', 'id', 'CASCADE', 'CASCADE');
 	}
 
 	/**

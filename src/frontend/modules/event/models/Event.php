@@ -71,7 +71,7 @@ class Event extends ActiveRecord
 
 	public function getBuyPageUrl($params = array())
 	{
-		return self::createUrl(array('/event/default/view', 'id' => $this->id), $params);
+		return self::createUrl(array('/event/default/buy', 'id' => $this->id), $params);
 	}
 
 	/**
@@ -128,5 +128,27 @@ class Event extends ActiveRecord
 	{
 		$format = app()->dateFormatter;
 		return $format->format('d MMMM y H:m', $this->begin_date);
+	}
+
+	public function getStartPrice()
+	{
+		/** @var EventTicketType $model */
+		$model = EventTicketType::model()->compare('t.event_id', $this->id)->order('t.price ASC')->find();
+
+		return $model ? $model->price : 0;
+	}
+
+	public function getTickets()
+	{
+		$models = EventTicketType::model()->compare('t.event_id', $this->id)->visible()->published()->ordered()->findAll();
+
+		$listData = array();
+		foreach ($models as $model) {
+			$value = $model->id;
+			$text = $model->label . ' (Proce: $' . $model->price . ')';
+			$listData[$value] = $text;
+		}
+
+		return $listData;
 	}
 }

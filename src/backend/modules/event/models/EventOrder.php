@@ -13,18 +13,19 @@ use back\components\ActiveRecord;
  * The followings are the available columns in table '{{event_order}}':
  * @property integer $id
  * @property integer $event_id
- * @property double $price
  * @property double $real_price
  * @property string $name
  * @property string $email
  * @property integer $promo_code_id
+ * @property integer $ticket_id
  * @property string $order_date
  * @property integer $group_id
  *
  * The followings are the available model relations:
- * @property EventPromoCode $promoCode
+ * @property EventTicketType $ticket
  * @property Event $event
  * @property EventOrderGroup $group
+ * @property EventPromoCode $promoCode
  */
 class EventOrder extends ActiveRecord
 {
@@ -55,9 +56,10 @@ class EventOrder extends ActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'promoCode' => array(self::BELONGS_TO, 'EventPromoCode', 'promo_code_id'),
+			'ticket' => array(self::BELONGS_TO, 'EventTicketType', 'ticket_id'),
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'group' => array(self::BELONGS_TO, 'EventOrderGroup', 'group_id'),
+			'promoCode' => array(self::BELONGS_TO, 'EventPromoCode', 'promo_code_id'),
 		);
 	}
 
@@ -69,13 +71,13 @@ class EventOrder extends ActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, order_date, group_id', 'required'),
-			array('event_id, promo_code_id, group_id', 'numerical', 'integerOnly' => true),
-			array('price, real_price', 'numerical'),
+			array('event_id, ticket_id, order_date', 'required'),
+			array('event_id, promo_code_id, ticket_id, group_id', 'numerical', 'integerOnly' => true),
+			array('real_price', 'numerical'),
 			array('name', 'length', 'max' => 200),
 			array('email', 'length', 'max' => 100),
 			// The following rule is used by search().
-			array('id, event_id, price, real_price, name, email, promo_code_id, order_date, group_id', 'safe', 'on' => 'search', ),
+			array('id, event_id, real_price, name, email, promo_code_id, ticket_id, order_date, group_id', 'safe', 'on' => 'search', ),
 		);
 	}
 
@@ -88,11 +90,11 @@ class EventOrder extends ActiveRecord
 			parent::attributeLabels(),
 			array(
 				'event_id' => 'Событие',
-				'price' => 'Цена',
 				'real_price' => 'Реальная Цена',
 				'name' => 'Имя',
 				'email' => 'Email',
 				'promo_code_id' => 'Промо код',
+				'ticket_id' => 'Билет',
 				'order_date' => 'Время заказа',
 				'group_id' => 'Группа',
 			)
@@ -115,11 +117,11 @@ class EventOrder extends ActiveRecord
 
 		$criteria->compare('t.id', $this->id);
 		$criteria->compare('t.event_id', $this->event_id);
-		$criteria->compare('t.price', $this->price);
 		$criteria->compare('t.real_price', $this->real_price);
 		$criteria->compare('t.name', $this->name, true);
 		$criteria->compare('t.email', $this->email, true);
 		$criteria->compare('t.promo_code_id', $this->promo_code_id);
+		$criteria->compare('t.ticket_id', $this->ticket_id);
 		$criteria->compare('t.order_date', $this->order_date, true);
 		$criteria->compare('t.group_id', $this->group_id);
 
@@ -169,6 +171,7 @@ class EventOrder extends ActiveRecord
 					'event_id',
 					'email',
 					'promo_code_id',
+					'ticket_id',
 					'group_id',
 					array(
 						'class' => 'bootstrap.widgets.TbButtonColumn',
@@ -179,11 +182,11 @@ class EventOrder extends ActiveRecord
 				$columns = array(
 					'id',
 					'event_id',
-					'price',
 					'real_price',
 					'name',
 					'email',
 					'promo_code_id',
+					'ticket_id',
 					'order_date',
 					'group_id',
 				);
@@ -211,10 +214,6 @@ class EventOrder extends ActiveRecord
 					'type' => 'text',
 					'class' => 'span3',
 				),
-				'price' => array(
-					'type' => 'text',
-					'class' => 'span6',
-				),
 				'real_price' => array(
 					'type' => 'text',
 					'class' => 'span6',
@@ -228,6 +227,10 @@ class EventOrder extends ActiveRecord
 					'class' => 'span6',
 				),
 				'promo_code_id' => array(
+					'type' => 'text',
+					'class' => 'span3',
+				),
+				'ticket_id' => array(
 					'type' => 'text',
 					'class' => 'span3',
 				),

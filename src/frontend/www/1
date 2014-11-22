@@ -40,3 +40,31 @@
 [22-Nov-2014 12:55:10 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 32
 [22-Nov-2014 12:55:10 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 35
 [22-Nov-2014 12:55:10 Europe/Kiev] PHP Fatal error:  Call to a member function run() on a non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 36
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 8
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 9
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 10
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 11
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 8
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 9
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 10
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 11
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 8
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 9
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 10
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 11
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 8
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 9
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 10
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 11
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 8
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 9
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 10
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 11
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 23
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 24
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 25
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 26
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 27
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 32
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Notice:  Trying to get property of non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 35
+[22-Nov-2014 15:38:04 Europe/Kiev] PHP Fatal error:  Call to a member function run() on a non-object in /vagrant/src/vendor/malyshev/yii-debug-toolbar/views/main.php on line 36

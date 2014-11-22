@@ -26,7 +26,7 @@
 						<p class="desc"><?= $data->place; ?></p>
 						<ul>
 							<li style="width:50%;"><a href="<?= nu($data->getPageUrl()); ?>"><span class="fa fa-globe"></span> to event</a></li>
-							<li style="width:50%;"><a href="<?= nu($data->getBuyPageUrl()); ?>"><span class="fa fa-money"></span> $39.99</a></li>
+							<li style="width:50%;"><a href="<?= nu($data->getBuyPageUrl()); ?>"><span class="fa fa-money"></span> $<?= $data->getStartPrice(); ?></a></li>
 						</ul>
 					</div>
 				</li>
