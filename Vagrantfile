@@ -2,7 +2,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty32"
 
   config.vm.network "forwarded_port", guest: 80, host: 8888
-  config.vm.network "forwarded_port", guest: 8080, host: 8889
+  config.vm.network "forwarded_port", guest: 8080, host: 8899
 
   config.vm.provider :virtualbox do |virtualbox|
     virtualbox.customize ["modifyvm", :id, "--name", "metalguardian-uwc-final"]

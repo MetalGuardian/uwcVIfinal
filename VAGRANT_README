@@ -3,4 +3,4 @@ vagrant up
 
 и приложение будет доступно 
 http://localhost:8888/ фронт
-http://localhost:8889/ админка
+http://localhost:8899/ админка

@@ -42,6 +42,8 @@ class MenuWidget extends \TbNavbar
 		));
 		$items[] = array('label' => 'Объекты', 'items' => array(
 			array('label' => 'Events', 'url' => array('/event/event/index'), ),
+			array('label' => 'Events Tickets', 'url' => array('/event/eventTicketType/index'), ),
+			array('label' => 'Events Promo Codes', 'url' => array('/event/eventPromoCode/index'), ),
 		),);
 		$items[] = array('label' => 'Пользователи', 'items' => array(
 			array('label' => 'Админ', 'url' => array('/admin/user/index'), ),
