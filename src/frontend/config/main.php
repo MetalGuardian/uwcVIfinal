@@ -30,9 +30,11 @@ $frontend = array(
 		'emailQueue' => realpath(
 			__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'emailQueue'
 		),
+		'event' => realpath(
+			__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'event'
+		),
 	),
 	'theme' => 'melon',
-	'preload' => array('bootstrap',),
 	'modules' => array(
 		'front' => array(
 			'class' => '\front\FrontModule',
@@ -44,7 +46,14 @@ $frontend = array(
 			'cachedImagesBaseDir' => 'uploads/thumb',
 			// set path without first and last slashes
 			'imageSections' => array(
-
+				'event' => array(
+					'widget' => array(
+						'width' => 120,
+						'height' => 120,
+						'quality' => 100,
+						'do' => 'adaptiveResize', // resize|adaptiveResize
+					),
+				),
 			),
 			'imageHandler' => array(
 				'driver' => '\fileProcessor\extensions\imageHandler\drivers\MDriverGD',
@@ -60,6 +69,9 @@ $frontend = array(
 		'configuration' => array(
 			'class' => '\configuration\ConfigurationModule',
 		),
+		'event' => array(
+			'class' => '\event\EventModule',
+		),
 	),
 	'controllerNamespace' => '\frontend\controllers',
 	'controllerMap'=>array(
@@ -70,10 +82,6 @@ $frontend = array(
 	'components' => array(
 		'themeManager' => array(
 			'basePath' => realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'themes'),
-		),
-		'bootstrap' => array(
-			'class' => '\front\components\Bootstrap',
-			'responsiveCss' => true,
 		),
 		'urlManager' => array(
 			'class' => '\language\components\LanguageUrlManager',
@@ -103,7 +111,7 @@ $frontend = array(
 				array('site/imperaviFileUpload', 'pattern' => '<lang:\w{2}>/redactor/upload/file', ),
 				array('site/imperaviFileUpload', 'pattern' => 'redactor/upload/file', ),
 
-				array('site/cms', 'pattern' => 'cmsmagazine56dda8314b32734acb0c402354cf7bc9.txt',),
+				array('event/default/view', 'pattern' => 'event/<id:\d+>'),
 
 				array(
 					'class' => '\fileProcessor\components\YiiFileProcessorUrlRule',
@@ -151,10 +159,12 @@ $frontend = array(
 					'depends' => array('jquery', 'theme.melon'),
 				),
 				'theme.melon' => array(
-					'baseUrl' => '/themes/melon/',
+					'baseUrl' => '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/',
 					'js' => array(
+						'js/bootstrap.min.js',
 					),
 					'css' => array(
+						'css/bootstrap.min.css' => '',
 					),
 					'depends' => array('jquery', ),
 				),

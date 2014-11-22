@@ -21,13 +21,6 @@ class FrontController extends Controller
 	 */
 	public $layout = '//layouts/sub';
 
-	public function init()
-	{
-		parent::init();
-
-		cs()->registerMetaTag('56dda8314b32734acb0c402354cf7bc9', 'cmsmagazine');
-	}
-
 	/**
 	 * @param string $className
 	 * @param array $properties
