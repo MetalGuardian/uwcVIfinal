@@ -77,6 +77,10 @@ class DefaultController extends FrontController
 		$criteria->params = array(':hash' => $hash);
 		$model = EventOrder::model()->find($criteria);
 
+		if (!$model) {
+			throw new \CHttpException(404, 'Ticket not found');
+		}
+
 		$html = $this->render('ticket', array('model' => $model), true);
 		//$mpdf = new \mPDF();
 		//$mpdf->WriteHTML($html);
