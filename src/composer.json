@@ -38,6 +38,7 @@
 		"metalguardian/yii-date-time-picker": "dev-master",
 		"phpmailer/phpmailer": "v5.2.7",
 		"yiiext/imperavi-redactor-widget": "dev-master",
-		"mpdf/mpdf": "dev-master"
+		"mpdf/mpdf": "dev-master",
+		"fzaninotto/faker": "~1.4"
  	}
 }

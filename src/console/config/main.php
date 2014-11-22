@@ -12,6 +12,18 @@ $console = array(
 		'frontend' => realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'frontend'),
 	),
 	'basePath' => realpath(__DIR__ . DIRECTORY_SEPARATOR .  '..'),
+	'modules' => array(
+		'file-processor' => array(
+			'class' => '\fileProcessor\FileProcessorModule',
+			'baseDir' => realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'www') . DIRECTORY_SEPARATOR,
+			'originalBaseDir' => 'uploads',
+			'cachedImagesBaseDir' => 'uploads/thumb',
+			'imageHandler' => array(
+				'driver' => '\fileProcessor\extensions\imageHandler\drivers\MDriverGD',
+				// '\fileProcessor\extensions\imageHandler\drivers\MDriverImageMagic'
+			),
+		),
+	),
 	'commandMap' => array(
 		'migrate' => array(
 			'class' => '\console\components\commands\MigrateCommand',

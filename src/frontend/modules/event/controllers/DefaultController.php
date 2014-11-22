@@ -24,7 +24,7 @@ class DefaultController extends FrontController
 					'pageSize' => 10,
 				),
 				'sort' => array(
-					'defaultOrder' => 't.begin_date DESC',
+					'defaultOrder' => 't.begin_date ASC',
 				)
 			)
 		);
