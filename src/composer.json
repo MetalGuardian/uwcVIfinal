@@ -1,0 +1,43 @@
+{
+	"autoload": {
+		"psr-0": {
+			"core": "common/modules"
+		},
+		"classmap": [
+			"vendor/malyshev/yii-debug-toolbar",
+			"vendor/clevertech/yii-booster/src",
+			"vendor/yiiext/imperavi-redactor-widget"
+		]
+	},
+	"scripts": {
+		"pre-install-cmd": [
+			"core\\Callback::preInstall"
+		],
+		"post-install-cmd": [
+			"core\\Callback::postInstall"
+		],
+		"pre-update-cmd": [
+			"core\\Callback::preUpdate"
+		],
+		"post-update-cmd": [
+			"core\\Callback::postUpdate"
+		],
+		"post-package-install": [
+			"core\\Callback::postPackageInstall"
+		],
+		"post-package-update": [
+			"core\\Callback::postPackageUpdate"
+		]
+	},
+	"require":{
+		"php": ">=5.3.0",
+		"yiisoft/yii": "dev-master",
+		"clevertech/yii-booster": "1.1.0.*@dev",
+		"malyshev/yii-debug-toolbar": "dev-master",
+		"metalguardian/yii-file-processor": "dev-master",
+		"metalguardian/yii-date-time-picker": "dev-master",
+		"phpmailer/phpmailer": "v5.2.7",
+		"yiiext/imperavi-redactor-widget": "dev-master",
+		"mpdf/mpdf": "dev-master"
+ 	}
+}

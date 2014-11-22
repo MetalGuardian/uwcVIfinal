@@ -1,0 +1,46 @@
+server {
+	index index.php;
+	listen 80;
+ 
+	access_log /var/log/nginx/server.front.log;
+	error_log /var/log/nginx/server.front.error.log;
+ 
+	root /vagrant/src/frontend/www;
+ 
+	# check file exist and send request sting to index.php 
+	location / {
+		try_files $uri $uri/ /index.php?$args;
+	}
+ 
+	location ~ \.php$ {
+		try_files $uri =404;
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+	
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
+		fastcgi_index index.php;
+		include fastcgi_params;
+	}
+}
+server {
+	index index.php;
+	listen 8080;
+
+	access_log /var/log/nginx/server.back.log;
+	error_log /var/log/nginx/server.back.error.log;
+
+	root /vagrant/src/backend/www;
+
+	# check file exist and send request sting to index.php
+	location / {
+		try_files $uri $uri/ /index.php?$args;
+	}
+
+	location ~ \.php$ {
+		try_files $uri =404;
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
+		fastcgi_index index.php;
+		include fastcgi_params;
+	}
+}

@@ -1,0 +1,41 @@
+# cache directories
+Thumbs.db
+*.DS_Store
+*.empty
+
+# svn
+.svn*
+
+# phpStorm
+.idea
+
+# eclipse
+.buildpath
+.classpath
+.project
+.settings/
+
+# netbeans
+nbproject/
+
+# sublime
+*.sublime*
+
+# sass cache files
+*.sass-cache
+
+# other
+*~
+~*
+.~*
+
+backend/www/uploads
+backend/config/local.php
+frontend/www/uploads
+frontend/config/local.php
+console/config/local.php
+console/config/messages.php
+common/config/local.php
+frontend/www/crossdomain.xml
+
+composer.phar

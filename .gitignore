@@ -1,0 +1,32 @@
+# cache directories
+Thumbs.db
+*.DS_Store
+*.empty
+
+# svn
+.svn*
+
+# phpStorm
+.idea
+
+# eclipse
+.buildpath
+.classpath
+.project
+.settings/
+
+# netbeans
+nbproject/
+
+# sublime
+*.sublime*
+
+# sass cache files
+*.sass-cache
+
+# other
+*~
+~*
+.~*
+
+.vagrant

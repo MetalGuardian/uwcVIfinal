@@ -1,0 +1,21 @@
+<?php
+
+return array(
+	'components' => array(
+		'db' => array(
+			'class' => '\core\components\DbConnection',
+			'connectionString' => 'mysql:host=localhost;dbname=database',
+			'emulatePrepare' => true,
+			'username' => 'db_user',
+			'password' => 'db_user_password',
+			'charset' => 'utf8',
+			'tablePrefix' => 'tbl_',
+			'schemaCachingDuration' => 0,
+			'enableProfiling' => true,
+			'enableParamLogging' => true,
+		),
+	),
+	'params' => array(
+		'debug' => true,
+	),
+);

@@ -1,0 +1,27 @@
+<?php
+return array(
+	'modules' => array(
+		'gii' => array(
+			'class' => 'system.gii.GiiModule',
+			'password' => false,
+			'ipFilters' => false,
+			'generatorPaths' => array(
+				'front.components.gii',
+			),
+		),
+	),
+	'components' => array(
+		'messages' => array(
+			'onMissingTranslation' => array('\common\modules\core\components\MessageEventHandler', 'handleMissingTranslation'),
+		),
+		'log' => array(
+			'routes' => array(
+				array(
+					'class' => '\YiiDebugToolbarRoute',
+					// Access is restricted by default to the localhost
+					'ipFilters' => array('*',),
+				),
+			),
+		),
+	),
+);
