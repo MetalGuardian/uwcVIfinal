@@ -2,6 +2,11 @@
 /**
  * Author: metal
  * Email: metal
- */ 
+ */
+/**
+ * @var \event\models\EventOrder $model
+ */
 ?>
-Text email send ticket
+You order ticket on your site {siteName}!
+
+You can download your ticket <?= CHtml::link('here', au($model->getTicketUrl())); ?>

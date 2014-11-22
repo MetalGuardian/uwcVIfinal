@@ -67,4 +67,22 @@ class DefaultController extends FrontController
 	{
 		return Event::getClassName();
 	}
+
+	public function actionTicket($hash)
+	{
+		\Yii::import('zii.widgets.CDetailView');
+		$this->layout = false;
+		$criteria = new \CDbCriteria();
+		$criteria->addCondition('MD5(CONCAT(t.id, "-", t.email)) = :hash');
+		$criteria->params = array(':hash' => $hash);
+		$model = EventOrder::model()->find($criteria);
+
+		$html = $this->render('ticket', array('model' => $model), true);
+		//$mpdf = new \mPDF();
+		//$mpdf->WriteHTML($html);
+		//$mpdf->Output();
+		// тут баг у mPDF, поэтому так вывожу, без pdf
+		echo $html;
+		exit;
+	}
 }

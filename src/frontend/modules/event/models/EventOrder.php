@@ -106,7 +106,6 @@ class EventOrder extends ActiveRecord
 				if ($currentNum >  9) {
 					$checksum += 1;
 				}
-				dump($currentNum, 0);
 			}
 
 			if ($checksum % 10 == 0) {
@@ -212,5 +211,10 @@ class EventOrder extends ActiveRecord
 		parent::afterSave();
 
 		EmailQueue::add('Tickets for event', $this->email, array('model' => $this), 'sendTicket');
+	}
+
+	public function getTicketUrl($params = array())
+	{
+		return self::createUrl(array('/event/default/ticket', 'hash' => md5($this->id . '-' . $this->email)));
 	}
 }

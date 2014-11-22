@@ -145,7 +145,7 @@ class Event extends ActiveRecord
 		$listData = array();
 		foreach ($models as $model) {
 			$value = $model->id;
-			$text = $model->label . ' (Proce: $' . $model->price . ')';
+			$text = $model->label . ' (Price: $' . $model->price . ')';
 			$listData[$value] = $text;
 		}
 

@@ -115,6 +115,7 @@ $frontend = array(
 				array('event/default/index', 'pattern' => 'event'),
 				array('event/default/view', 'pattern' => 'event/<id:\d+>'),
 				array('event/default/buy', 'pattern' => 'event/<id:\d+>/buy'),
+				array('event/default/ticket', 'pattern' => 'event/ticket/<hash:\w+>'),
 
 				array(
 					'class' => '\fileProcessor\components\YiiFileProcessorUrlRule',
