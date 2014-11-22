@@ -1,2 +1,4 @@
 [22-Nov-2014 12:35:05 Europe/Kiev] PHP Warning:  require(): Filename cannot be empty in /vagrant/src/backend/www/index.php on line 7
 [22-Nov-2014 12:35:05 Europe/Kiev] PHP Fatal error:  require(): Failed opening required '' (include_path='.:/usr/share/php:/usr/share/pear') in /vagrant/src/backend/www/index.php on line 7
+[22-Nov-2014 13:06:04 Europe/Kiev] PHP Fatal error:  Call to undefined function fileProcessor\extensions\imageHandler\drivers\imagecreatefromjpeg() in /vagrant/src/vendor/metalguardian/yii-file-processor/fileProcessor/extensions/imageHandler/drivers/MDriverGD.php on line 381
+[22-Nov-2014 13:06:09 Europe/Kiev] PHP Fatal error:  Call to undefined function fileProcessor\extensions\imageHandler\drivers\imagecreatefromjpeg() in /vagrant/src/vendor/metalguardian/yii-file-processor/fileProcessor/extensions/imageHandler/drivers/MDriverGD.php on line 381
