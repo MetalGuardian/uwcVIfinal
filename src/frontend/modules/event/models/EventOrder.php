@@ -5,6 +5,7 @@
 
 namespace event\models;
 
+use emailQueue\models\EmailQueue;
 use front\components\ActiveRecord;
 
 /**
@@ -193,5 +194,12 @@ class EventOrder extends ActiveRecord
 		if (!$this->hasErrors()) {
 			$this->real_price = $this->ticket->price;
 		}
+	}
+
+	protected function afterSave()
+	{
+		parent::afterSave();
+
+		EmailQueue::add('Tickets for event', $this->email, array('model' => $this), 'sendTicket');
 	}
 }

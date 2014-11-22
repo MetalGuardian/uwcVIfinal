@@ -80,11 +80,11 @@
 		<tr class="visible-xs">
 			<td class="text-center"><strong>Total 1.99</strong></td>
 		</tr>
-		<tr class="select-step<?= $step; ?>">
+		<tr>
 			<td><a href="<?= nu($model->getPageUrl()); ?>" class="btn btn-warning"><i class="fa fa-angle-left"></i> Back to event</a></td>
 			<td colspan="2" class="hidden-xs"></td>
-			<td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-			<td><input type="submit" class="btn btn-success btn-block" value="Checkout" /></td>
+			<td class="hidden-xs text-center"><strong><?= $buy->real_price ? 'Total $' . $buy->real_price : null; ?></strong></td>
+			<td class="select-step<?= $step; ?>"><input type="submit" class="btn btn-success btn-block" value="Checkout" /></td>
 		</tr>
 		</tfoot>
 	</table>
@@ -99,7 +99,7 @@
 		</div>
 		<div class="modal-body">
 			<div class="row">
-				<div class="col-xs-6">
+				<div class="col-xs-12">
 					<div class="well">
 							<div class="form-group">
 								<label for="username" class="control-label">Card holder name</label>
@@ -113,12 +113,6 @@
 							</div>
 							<button type="submit" class="btn btn-success btn-block">Order</button>
 					</div>
-				</div>
-				<div class="col-xs-6">
-					<p class="lead">Selected tickets:</p>
-					<ul class="list-unstyled" style="line-height: 2">
-						<li><span class="fa fa-check text-success"></span> See all your orders</li>
-					</ul>
 				</div>
 			</div>
 		</div>

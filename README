@@ -11,3 +11,6 @@ uwcVI 3
 
 Фронт: http://localhost:8888/
 
+Почта отправляется по крону, если настроена конечно :)
+посмотреть чередь почты можно в админке: http://localhost:8889/emailQueue/emailQueue/index
+
