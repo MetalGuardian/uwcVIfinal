@@ -23,6 +23,11 @@ cs()->registerPackage('frontend.main');
 </head>
 
 <body>
+<nav class="navbar navbar-default" role="navigation">
+<div class="collapse navbar-collapse">
+	<?php $this->widget(\menu\widgets\menuMain\MenuMain::getClassName()); ?>
+</div>
+</nav>
 <div class="container">
 	<?php echo $content; ?>
 </div>

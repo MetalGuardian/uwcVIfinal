@@ -112,6 +112,7 @@ $frontend = array(
 				array('site/imperaviFileUpload', 'pattern' => '<lang:\w{2}>/redactor/upload/file', ),
 				array('site/imperaviFileUpload', 'pattern' => 'redactor/upload/file', ),
 
+				array('event/default/index', 'pattern' => 'event'),
 				array('event/default/view', 'pattern' => 'event/<id:\d+>'),
 				array('event/default/buy', 'pattern' => 'event/<id:\d+>/buy'),
 

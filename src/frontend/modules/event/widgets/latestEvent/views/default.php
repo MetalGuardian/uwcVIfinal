@@ -35,3 +35,4 @@
 		</div>
 	</div>
 </div>
+<?= CHtml::link('All events', \event\models\Event::getListPageUrl()); ?>

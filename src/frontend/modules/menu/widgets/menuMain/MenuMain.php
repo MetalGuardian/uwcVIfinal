@@ -7,6 +7,7 @@
 namespace menu\widgets\menuMain;
 
 use core\components\Menu;
+use event\models\Event;
 
 /**
  * Class MenuMain
@@ -14,9 +15,13 @@ use core\components\Menu;
  */
 class MenuMain extends Menu
 {
+	public $htmlOptions = array('class' => 'nav navbar-nav');
 	public function init()
 	{
-		$items = array();
+		$items = array(
+			array('label' => 'Index', 'url' => array('/site/index')),
+			array('label' => 'Events', 'url' => Event::getListPageUrl()),
+		);
 		$this->items = $items;
 		parent::init();
 	}

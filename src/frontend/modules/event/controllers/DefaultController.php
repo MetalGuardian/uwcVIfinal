@@ -16,7 +16,20 @@ class DefaultController extends FrontController
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+		$dataProvider = new \CActiveDataProvider(
+			Event::model()
+			->compare('t.begin_date', '>=' . date('Y-m-d H:i:s')),
+			array(
+				'pagination' => array(
+					'pageSize' => 10,
+				),
+				'sort' => array(
+					'defaultOrder' => 't.begin_date DESC',
+				)
+			)
+		);
+
+		$this->render('index', array('dataProvider' => $dataProvider));
 	}
 
 	public function actionView($id)
