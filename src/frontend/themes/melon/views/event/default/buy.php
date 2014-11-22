@@ -71,8 +71,8 @@
 				</div>
 			</td>
 			<td class="actions" data-th="">
-				<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-				<button class="btn btn-info btn-sm"><i class="fa fa-plus"></i></button>
+				<?php /*<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+				<button class="btn btn-info btn-sm"><i class="fa fa-plus"></i></button>*/ ?>
 			</td>
 		</tr>
 		</tbody>

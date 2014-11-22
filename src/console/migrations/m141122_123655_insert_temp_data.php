@@ -17,7 +17,7 @@ class m141122_123655_insert_temp_data extends \CDbMigration
 				'content' => $faker->text(),
 				'place' => $faker->address,
 				'begin_date' => date('Y-m-d H:i:s', strtotime('+'.mt_rand(0, 30).' days')),
-				//'image_id' => \fileProcessor\helpers\FPM::transfer()->saveFileByCopy($faker->image('/tmp', '1366', '768'))
+				'image_id' => \fileProcessor\helpers\FPM::transfer()->saveFileByCopy($faker->image('/tmp', '1366', '768'))
 			);
 
 			$this->insert('{{event}}', $event);
